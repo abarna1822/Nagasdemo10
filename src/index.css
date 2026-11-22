@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-cream: var(--theme-canvas);
+  --color-paper: var(--theme-paper);
+  --color-brand-primary: var(--theme-primary);
+  --color-brand-deep: var(--theme-deep);
+  --color-brand-mid: var(--theme-mid);
+  --color-brand-obsidian: var(--theme-obsidian);
+  --color-gold: var(--theme-script);
+  --color-honey: var(--theme-highlight);
+  --color-ink: var(--theme-ink);
+  --color-stone: var(--theme-stone);
+  --color-tint: var(--theme-tint);
+  --color-mist: var(--theme-mist);
+}
+
+@layer base {
+  :root {
+    --theme-canvas: #FAF7F2;
+    --theme-paper: #FFFDF9;
+    --theme-primary: #8C2318;
+    --theme-deep: #1D2024;
+    --theme-mid: #2D3238;
+    --theme-obsidian: #121417;
+    --theme-script: #A65214;
+    --theme-highlight: #EEAD50;
+    --theme-ink: #191A1C;
+    --theme-stone: #EAE7E1;
+    --theme-tint: #F3F0EA;
+    --theme-mist: #D5D1CA;
+    --theme-hero-wash: rgba(29, 32, 36, 0.28);
+    --theme-paper-grain: rgba(25, 26, 28, 0.03);
+
+    --color-cream: var(--theme-canvas);
+    --color-paper: var(--theme-paper);
+    --color-brand-primary: var(--theme-primary);
+    --color-brand-deep: var(--theme-deep);
+    --color-gold: var(--theme-script);
+    --color-honey: var(--theme-highlight);
+    --color-ink: var(--theme-ink);
+    --color-whatsapp: #1E8449;
+  }
+
+  html {
+    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    background-color: var(--theme-canvas);
+    color: var(--theme-ink);
+  }
+}
+
+.font-display {
+  font-family: 'Fraunces', Georgia, serif;
+  font-variation-settings: "opsz" 72;
+}
+
+.font-sans-ui {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+
+.font-script {
+  font-family: 'Caveat', cursive;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Slow ambient ken-burns motion for default date-palm hero reel */
+@keyframes kenBurnsPalm {
+  0% {
+    transform: scale(1.02) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.09) translate3d(-1.5%, -1%, 0);
+  }
+  100% {
+    transform: scale(1.02) translate3d(0, 0, 0);
+  }
+}
+
+.animate-ken-burns {
+  animation: kenBurnsPalm 22s ease-in-out infinite;
+}
+
+/* Rotating quality stamp */
+@keyframes slowSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-stamp-spin {
+  animation: slowSpin 24s linear infinite;
+}
+
+/* Celebration burst for order confirmation */
+@keyframes confettiDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.8);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(80px) rotate(180deg) scale(1);
+  }
+}
+
+.animate-confetti {
+  animation: confettiDrop 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ken-burns,
+  .animate-stamp-spin,
+  .animate-confetti {
+    animation: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Subtle paper grain pattern via pure CSS gradient */
+.paper-texture {
+  background-color: var(--theme-paper);
+  background-image: radial-gradient(var(--theme-paper-grain) 1px, transparent 0);
+  background-size: 18px 18px;
+}
+
+/* Perforated ticket card edge */
+.ticket-notches {
+  mask-image: radial-gradient(circle at 0 50%, transparent 10px, black 11px),
+    radial-gradient(circle at 100% 50%, transparent 10px, black 11px);
+  mask-composite: intersect;
+}
